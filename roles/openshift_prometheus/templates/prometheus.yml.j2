@@ -137,10 +137,6 @@ scrape_configs:
   - role: endpoints
 
   relabel_configs:
-    # only scrape infrastructure components
-    - source_labels: [__meta_kubernetes_namespace]
-      action: keep
-      regex: 'default|metrics|kube-.+|openshift|openshift-.+'
     # drop logging components managed by other scrape targets
     - source_labels: [__meta_kubernetes_namespace]
       action: drop
